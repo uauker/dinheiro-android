@@ -1,9 +1,11 @@
-package com.uauker.apps.dinheiro;
+package com.uauker.apps.dinheiro.activities;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.uauker.apps.dinheiro.R;
 
 
 public class MainActivity extends ActionBarActivity {

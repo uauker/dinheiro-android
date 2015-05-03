@@ -32,25 +32,19 @@ public class ExchangeRateFragment extends Fragment implements Callback {
         super.onViewCreated(view, savedInstanceState);
 
         try {
-            run(ConfigHelper.CURRENCY);
-//            Log.e("ERROR ___----> ", content);
+            run();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public void run(String url) throws IOException {
+    public void run() throws IOException {
         final Request request = new Request.Builder()
-                .url(url)
+                .url(ConfigHelper.CURRENCY)
                 .build();
 
         final Call call = client.newCall(request);
         call.enqueue(this);
-//        call.execute();
-
-//        final Response response = call.execute();
-//
-//        return response.body().string();
     }
 
     @Override

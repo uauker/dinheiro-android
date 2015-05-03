@@ -1,8 +1,8 @@
 package com.uauker.apps.dinheiro.activities;
 
+import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -25,6 +25,10 @@ public class MainActivity extends ActionBarActivity {
                 getSupportFragmentManager(), FragmentPagerItems.with(this)
                 .add(R.string.hello_world, DemoFragment.class)
                 .add(R.string.action_settings, DemoFragment.class)
+                .add(R.string.app_name, DemoFragment.class)
+                .add(R.string.hello_world, DemoFragment.class)
+                .add(R.string.action_settings, DemoFragment.class)
+                .add(R.string.app_name, DemoFragment.class)
                 .create());
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);

@@ -36,4 +36,7 @@ dependencies {
     // ViewPager
     compile 'com.ogaclejapan.smarttablayout:library:1.1.3@aar'
     compile 'com.ogaclejapan.smarttablayout:utils-v4:1.1.3@aar'
+
+    // http request - okhttp
+    compile 'com.squareup.okhttp:okhttp:2.3.0'
 }

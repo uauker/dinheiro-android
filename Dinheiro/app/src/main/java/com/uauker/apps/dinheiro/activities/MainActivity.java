@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
         FragmentPagerItemAdapter adapter = new FragmentPagerItemAdapter(
                 getSupportFragmentManager(), FragmentPagerItems.with(this)
-                .add(R.string.hello_world, DemoFragment.class)
+                .add(R.string.exchange_rate, DemoFragment.class)
                 .add(R.string.action_settings, DemoFragment.class)
                 .add(R.string.app_name, DemoFragment.class)
                 .add(R.string.hello_world, DemoFragment.class)

@@ -3,6 +3,7 @@ package com.uauker.apps.dinheiro.fragments;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,9 +19,10 @@ import com.uauker.apps.dinheiro.helpers.ConfigHelper;
 
 import java.io.IOException;
 
-public class ExchangeRateFragment extends Fragment implements Callback {
+public class ExchangeRateFragment extends Fragment implements Callback, SwipeRefreshLayout.OnRefreshListener {
 
     OkHttpClient client = new OkHttpClient();
+    SwipeRefreshLayout swipeRefresh;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -30,6 +32,9 @@ public class ExchangeRateFragment extends Fragment implements Callback {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        this.swipeRefresh = (SwipeRefreshLayout) view.findViewById(R.id.fragment_swipe_refresh_layout);
+        this.swipeRefresh.setOnRefreshListener(this);
 
         try {
             run();
@@ -49,11 +54,27 @@ public class ExchangeRateFragment extends Fragment implements Callback {
 
     @Override
     public void onFailure(Request request, IOException e) {
-
+        this.swipeRefresh.setRefreshing(false);
     }
 
     @Override
     public void onResponse(Response response) throws IOException {
         Log.e("apresentando resultado", response.body().string());
+
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                swipeRefresh.setRefreshing(false);
+            }
+        });
+    }
+
+    @Override
+    public void onRefresh() {
+        try {
+            run();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

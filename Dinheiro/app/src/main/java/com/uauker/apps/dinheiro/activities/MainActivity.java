@@ -11,6 +11,7 @@ import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItemAdapter;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItems;
 import com.uauker.apps.dinheiro.R;
 import com.uauker.apps.dinheiro.fragments.DemoFragment;
+import com.uauker.apps.dinheiro.fragments.ExchangeRateFragment;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -23,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
         FragmentPagerItemAdapter adapter = new FragmentPagerItemAdapter(
                 getSupportFragmentManager(), FragmentPagerItems.with(this)
-                .add(R.string.exchange_rate, DemoFragment.class)
+                .add(R.string.exchange_rate, ExchangeRateFragment.class)
                 .add(R.string.action_settings, DemoFragment.class)
                 .add(R.string.app_name, DemoFragment.class)
                 .add(R.string.hello_world, DemoFragment.class)

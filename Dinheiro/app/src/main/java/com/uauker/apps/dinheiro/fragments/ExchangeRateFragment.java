@@ -54,13 +54,17 @@ public class ExchangeRateFragment extends Fragment implements Callback, SwipeRef
 
     @Override
     public void onFailure(Request request, IOException e) {
-        this.swipeRefresh.setRefreshing(false);
+        endRefresing();
     }
 
     @Override
     public void onResponse(Response response) throws IOException {
         Log.e("apresentando resultado", response.body().string());
 
+        endRefresing();
+    }
+
+    public void endRefresing() {
         getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {

@@ -1,14 +1,11 @@
 package com.uauker.apps.dinheiro.activities;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.ViewGroup;
 
 import com.github.florent37.materialviewpager.MaterialViewPager;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItemAdapter;
@@ -16,6 +13,7 @@ import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItems;
 import com.uauker.apps.dinheiro.R;
 import com.uauker.apps.dinheiro.fragments.DemoFragment;
 import com.uauker.apps.dinheiro.fragments.ExchangeRateFragment;
+import com.uauker.apps.dinheiro.fragments.RecyclerViewFragment;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -37,8 +35,8 @@ public class MainActivity extends AppCompatActivity {
 
         adapter = new FragmentPagerItemAdapter(
                 getSupportFragmentManager(), FragmentPagerItems.with(this)
+                .add(R.string.action_settings, RecyclerViewFragment.class)
                 .add(R.string.exchange_rate, ExchangeRateFragment.class)
-                .add(R.string.action_settings, DemoFragment.class)
                 .add(R.string.app_name, DemoFragment.class)
                 .add(R.string.hello_world, DemoFragment.class)
                 .add(R.string.action_settings, DemoFragment.class)

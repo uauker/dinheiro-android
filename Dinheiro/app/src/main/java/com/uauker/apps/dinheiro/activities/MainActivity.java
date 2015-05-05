@@ -21,8 +21,8 @@ public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
     MaterialViewPager mViewPager;
 
-    DrawerLayout mDrawer;
-    ActionBarDrawerToggle mDrawerToggle;
+//    DrawerLayout mDrawer;
+//    ActionBarDrawerToggle mDrawerToggle;
 
     FragmentPagerItemAdapter adapter;
 
@@ -47,23 +47,23 @@ public class MainActivity extends AppCompatActivity {
 //        mViewPager.getViewPager().setAdapter(adapter);
 
         toolbar = mViewPager.getToolbar();
-        mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+//        mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
         if (toolbar != null) {
             setSupportActionBar(toolbar);
 
             final ActionBar actionBar = getSupportActionBar();
             if (actionBar != null) {
-                actionBar.setDisplayHomeAsUpEnabled(true);
-                actionBar.setDisplayShowHomeEnabled(true);
+                actionBar.setDisplayHomeAsUpEnabled(false);
+                actionBar.setDisplayShowHomeEnabled(false);
                 actionBar.setDisplayShowTitleEnabled(true);
                 actionBar.setDisplayUseLogoEnabled(false);
-                actionBar.setHomeButtonEnabled(true);
+                actionBar.setHomeButtonEnabled(false);
             }
         }
 
-        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawer, 0, 0);
-        mDrawer.setDrawerListener(mDrawerToggle);
+//        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawer, 0, 0);
+//        mDrawer.setDrawerListener(mDrawerToggle);
 
         mViewPager.getViewPager().setAdapter(adapter);
         mViewPager.getViewPager().setOffscreenPageLimit(mViewPager.getViewPager().getAdapter().getCount());
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-        mDrawerToggle.syncState();
+//        mDrawerToggle.syncState();
     }
 
 }

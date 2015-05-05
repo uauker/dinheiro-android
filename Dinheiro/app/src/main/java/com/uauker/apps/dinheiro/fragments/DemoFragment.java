@@ -26,4 +26,7 @@ public class DemoFragment extends Fragment {
         title.setText(String.valueOf(position));
     }
 
+    public static Fragment newInstance() {
+        return new DemoFragment();
+    }
 }

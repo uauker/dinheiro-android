@@ -1,9 +1,13 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppBaseTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
 
+
+    </style>
+
+    <style name="AppTheme" parent="AppBaseTheme">
         <item name="android:colorPrimary" tools:targetApi="21">@color/primary</item>
         <item name="android:colorPrimaryDark" tools:targetApi="21">@color/primary_dark</item>
 

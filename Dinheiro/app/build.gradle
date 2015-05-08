@@ -41,5 +41,14 @@ dependencies {
     compile 'com.squareup.okhttp:okhttp:2.3.0'
 
     //Parse XML
-//    compile 'com.thoughtworks.xstream:xstream:1.4.8'
+//    compile 'com.thoughtworks.xstream:xstream:1.4.8@jar'
+
+    // JODA
+    compile 'joda-time:joda-time:2.7'
+
+    // PrettyTime - HumanDate
+    compile 'org.ocpsoft.prettytime:prettytime:4.0.0.Final'
+
+
+
 }

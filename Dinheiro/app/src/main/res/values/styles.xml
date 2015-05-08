@@ -6,6 +6,8 @@
 
         <item name="android:colorPrimary" tools:targetApi="21">@color/primary</item>
         <item name="android:colorPrimaryDark" tools:targetApi="21">@color/primary_dark</item>
+
+        <item name="android:windowDrawsSystemBarBackgrounds" tools:targetApi="21">true</item>
     </style>
 
 </resources>

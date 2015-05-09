@@ -71,8 +71,6 @@ public class ExchangeRateFragment extends Fragment implements Callback, SwipeRef
         xstream.processAnnotations(CurrencyShowCaseItem.class);
         UolCotIphone cot = (UolCotIphone) xstream.fromXML(xmlString);
 
-//        Log.e("AAAAAA", cot.currencyShowCases.get(0).currencyShowCaseItems.get(0).iso4217);
-
         endRefresing();
     }
 

@@ -14,8 +14,12 @@ import com.squareup.okhttp.Callback;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
+import com.thoughtworks.xstream.XStream;
 import com.uauker.apps.dinheiro.R;
 import com.uauker.apps.dinheiro.helpers.ConfigHelper;
+import com.uauker.apps.dinheiro.models.currencies.CurrencyShowCase;
+import com.uauker.apps.dinheiro.models.currencies.CurrencyShowCaseItem;
+import com.uauker.apps.dinheiro.models.currencies.UolCotIphone;
 
 import java.io.IOException;
 
@@ -59,7 +63,15 @@ public class ExchangeRateFragment extends Fragment implements Callback, SwipeRef
 
     @Override
     public void onResponse(Response response) throws IOException {
-        Log.e("apresentando resultado", response.body().string());
+        final String xmlString = response.body().string();
+
+        final XStream xstream = new XStream();
+        xstream.processAnnotations(UolCotIphone.class);
+        xstream.processAnnotations(CurrencyShowCase.class);
+        xstream.processAnnotations(CurrencyShowCaseItem.class);
+        UolCotIphone cot = (UolCotIphone) xstream.fromXML(xmlString);
+
+//        Log.e("AAAAAA", cot.currencyShowCases.get(0).currencyShowCaseItems.get(0).iso4217);
 
         endRefresing();
     }

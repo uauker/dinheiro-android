@@ -24,7 +24,6 @@ import com.uauker.apps.dinheiro.models.currencies.CurrencyShowCaseItem;
 import com.uauker.apps.dinheiro.models.currencies.UolCotIphone;
 
 import java.io.IOException;
-import java.util.List;
 
 public class ExchangeRateFragment extends Fragment implements Callback, SwipeRefreshLayout.OnRefreshListener {
 

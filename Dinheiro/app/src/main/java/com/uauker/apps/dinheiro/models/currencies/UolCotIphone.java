@@ -17,7 +17,7 @@ public class UolCotIphone {
         try {
             return currencyShowCases.get(0).currencyShowCaseItems;
         } catch (Exception e) {
-            return new ArrayList<CurrencyShowCaseItem>();
+            return new ArrayList<>();
         }
     }
 }

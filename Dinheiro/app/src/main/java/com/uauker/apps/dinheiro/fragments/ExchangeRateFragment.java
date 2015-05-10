@@ -33,6 +33,8 @@ public class ExchangeRateFragment extends Fragment implements Callback, SwipeRef
     RecyclerView recycler;
     ExchangeRateAdapter adapter;
 
+    UolCotIphone cot;
+
     public static ExchangeRateFragment newInstance() {
         return new ExchangeRateFragment();
     }
@@ -82,9 +84,7 @@ public class ExchangeRateFragment extends Fragment implements Callback, SwipeRef
         xstream.processAnnotations(CurrencyShowCase.class);
         xstream.processAnnotations(CurrencyShowCaseItem.class);
 
-        final UolCotIphone cot = (UolCotIphone) xstream.fromXML(xmlString);
-
-        this.recycler.setAdapter(new ExchangeRateAdapter(cot.getContent()));
+        this.cot = (UolCotIphone) xstream.fromXML(xmlString);
 
         endRefresing();
     }
@@ -93,6 +93,8 @@ public class ExchangeRateFragment extends Fragment implements Callback, SwipeRef
         getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
+                recycler.setAdapter(new ExchangeRateAdapter(cot.getContent()));
+
                 swipeRefresh.setRefreshing(false);
             }
         });

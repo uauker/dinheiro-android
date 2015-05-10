@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +17,7 @@ import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
 import com.thoughtworks.xstream.XStream;
 import com.uauker.apps.dinheiro.R;
+import com.uauker.apps.dinheiro.adapters.ExchangeRateAdapter;
 import com.uauker.apps.dinheiro.helpers.ConfigHelper;
 import com.uauker.apps.dinheiro.models.currencies.CurrencyShowCase;
 import com.uauker.apps.dinheiro.models.currencies.CurrencyShowCaseItem;
@@ -27,6 +30,13 @@ public class ExchangeRateFragment extends Fragment implements Callback, SwipeRef
     OkHttpClient client = new OkHttpClient();
     SwipeRefreshLayout swipeRefresh;
 
+    RecyclerView recycler;
+    ExchangeRateAdapter adapter;
+
+    public static ExchangeRateFragment newInstance() {
+        return new ExchangeRateFragment();
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_exchange_rate, container, false);
@@ -38,6 +48,10 @@ public class ExchangeRateFragment extends Fragment implements Callback, SwipeRef
 
         this.swipeRefresh = (SwipeRefreshLayout) view.findViewById(R.id.fragment_swipe_refresh_layout);
         this.swipeRefresh.setOnRefreshListener(this);
+
+        this.recycler = (RecyclerView) view.findViewById(R.id.activity_main_recyclerview);
+        this.recycler.setLayoutManager(new LinearLayoutManager(getActivity()));
+        this.recycler.setAdapter(new ExchangeRateAdapter());
 
         try {
             run();

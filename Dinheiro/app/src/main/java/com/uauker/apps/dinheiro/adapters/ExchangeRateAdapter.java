@@ -23,7 +23,7 @@ public class ExchangeRateAdapter extends RecyclerView.Adapter<ExchangeRateAdapte
 
     @Override
     public int getItemCount() {
-        return 0;
+        return 10;
     }
 
     public static class ExchangeRateViewHolder extends RecyclerView.ViewHolder {

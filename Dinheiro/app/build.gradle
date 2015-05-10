@@ -67,4 +67,7 @@ dependencies {
     // PrettyTime - HumanDate
     compile 'org.ocpsoft.prettytime:prettytime:4.0.0.Final'
 
+    // Charts
+    compile 'com.diogobernardino:williamchart:1.7.0'
+
 }

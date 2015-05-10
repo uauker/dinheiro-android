@@ -24,6 +24,7 @@ import com.uauker.apps.dinheiro.models.currencies.CurrencyShowCaseItem;
 import com.uauker.apps.dinheiro.models.currencies.UolCotIphone;
 
 import java.io.IOException;
+import java.util.List;
 
 public class ExchangeRateFragment extends Fragment implements Callback, SwipeRefreshLayout.OnRefreshListener {
 
@@ -51,7 +52,6 @@ public class ExchangeRateFragment extends Fragment implements Callback, SwipeRef
 
         this.recycler = (RecyclerView) view.findViewById(R.id.activity_main_recyclerview);
         this.recycler.setLayoutManager(new LinearLayoutManager(getActivity()));
-        this.recycler.setAdapter(new ExchangeRateAdapter());
 
         try {
             run();
@@ -82,7 +82,10 @@ public class ExchangeRateFragment extends Fragment implements Callback, SwipeRef
         xstream.processAnnotations(UolCotIphone.class);
         xstream.processAnnotations(CurrencyShowCase.class);
         xstream.processAnnotations(CurrencyShowCaseItem.class);
-        UolCotIphone cot = (UolCotIphone) xstream.fromXML(xmlString);
+
+        final UolCotIphone cot = (UolCotIphone) xstream.fromXML(xmlString);
+
+        this.recycler.setAdapter(new ExchangeRateAdapter(cot.getContent()));
 
         endRefresing();
     }

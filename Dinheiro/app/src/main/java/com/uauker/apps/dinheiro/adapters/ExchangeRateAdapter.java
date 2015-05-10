@@ -6,8 +6,18 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.uauker.apps.dinheiro.R;
+import com.uauker.apps.dinheiro.models.currencies.CurrencyShowCaseItem;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ExchangeRateAdapter extends RecyclerView.Adapter<ExchangeRateAdapter.ExchangeRateViewHolder> {
+
+    List<CurrencyShowCaseItem> content = new ArrayList<>();
+
+    public ExchangeRateAdapter(List<CurrencyShowCaseItem> content) {
+        this.content = content;
+    }
 
     @Override
     public ExchangeRateAdapter.ExchangeRateViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -23,7 +33,7 @@ public class ExchangeRateAdapter extends RecyclerView.Adapter<ExchangeRateAdapte
 
     @Override
     public int getItemCount() {
-        return 10;
+        return content.size();
     }
 
     public static class ExchangeRateViewHolder extends RecyclerView.ViewHolder {

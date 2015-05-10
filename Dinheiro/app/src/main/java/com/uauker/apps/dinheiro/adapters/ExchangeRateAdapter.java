@@ -1,22 +1,35 @@
 package com.uauker.apps.dinheiro.adapters;
 
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
-public class ExchangeRateAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    
+import com.uauker.apps.dinheiro.R;
+
+public class ExchangeRateAdapter extends RecyclerView.Adapter<ExchangeRateAdapter.ExchangeRateViewHolder> {
+
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return null;
+    public ExchangeRateAdapter.ExchangeRateViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        final View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_exchange_rate, parent, false);
+
+        return new ExchangeRateViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(ExchangeRateViewHolder holder, int position) {
 
     }
 
     @Override
     public int getItemCount() {
         return 0;
+    }
+
+    public static class ExchangeRateViewHolder extends RecyclerView.ViewHolder {
+
+        public ExchangeRateViewHolder(View itemView) {
+            super(itemView);
+        }
     }
 }

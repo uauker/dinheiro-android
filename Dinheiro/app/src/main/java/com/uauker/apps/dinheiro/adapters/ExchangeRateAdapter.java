@@ -50,7 +50,7 @@ public class ExchangeRateAdapter extends RecyclerView.Adapter<ExchangeRateAdapte
         }
 
         public void setObject(final CurrencyShowCaseItem item) {
-            this.name.setText(item.title);
+            this.name.setText(item.title + " - " + System.nanoTime());
         }
     }
 }

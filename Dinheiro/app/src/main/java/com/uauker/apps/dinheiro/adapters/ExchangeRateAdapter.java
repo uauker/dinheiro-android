@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.uauker.apps.dinheiro.R;
 import com.uauker.apps.dinheiro.models.currencies.CurrencyShowCaseItem;
@@ -28,7 +29,9 @@ public class ExchangeRateAdapter extends RecyclerView.Adapter<ExchangeRateAdapte
 
     @Override
     public void onBindViewHolder(ExchangeRateViewHolder holder, int position) {
+        final CurrencyShowCaseItem item = this.content.get(position);
 
+        holder.setObject(item);
     }
 
     @Override
@@ -38,8 +41,16 @@ public class ExchangeRateAdapter extends RecyclerView.Adapter<ExchangeRateAdapte
 
     public static class ExchangeRateViewHolder extends RecyclerView.ViewHolder {
 
+        TextView name;
+
         public ExchangeRateViewHolder(View itemView) {
             super(itemView);
+
+            this.name = (TextView) itemView.findViewById(R.id.exchange_rate_name);
+        }
+
+        public void setObject(final CurrencyShowCaseItem item) {
+            this.name.setText(item.title);
         }
     }
 }

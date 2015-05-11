@@ -43,10 +43,10 @@ public class ExchangeRateAdapter extends RecyclerView.Adapter<ExchangeRateAdapte
 
         TextView name;
 
-        public ExchangeRateViewHolder(View itemView) {
-            super(itemView);
+        public ExchangeRateViewHolder(View view) {
+            super(view);
 
-            this.name = (TextView) itemView.findViewById(R.id.exchange_rate_name);
+            this.name = (TextView) view.findViewById(R.id.exchange_rate_name);
         }
 
         public void setObject(final CurrencyShowCaseItem item) {

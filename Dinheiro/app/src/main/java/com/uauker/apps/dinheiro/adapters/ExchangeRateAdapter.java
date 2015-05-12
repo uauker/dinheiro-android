@@ -59,7 +59,7 @@ public class ExchangeRateAdapter extends RecyclerView.Adapter<ExchangeRateAdapte
             this.name.setText(item.title);
             this.buy.setText(item.buyPrice);
             this.sell.setText(item.sellPrice);
-            this.move.setText(item.moves);
+            this.move.setText(item.getMoveRounded());
         }
     }
 }

@@ -24,4 +24,14 @@ public class CurrencyShowCaseItem {
     @XStreamAsAttribute
     public String movesValue;
 
+    public String getMoveRounded() {
+        try {
+            final Float moveFloat = Float.parseFloat(this.moves);
+
+            return String.format("%.2f%%", moveFloat);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "";
+        }
+    }
 }

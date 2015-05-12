@@ -42,15 +42,24 @@ public class ExchangeRateAdapter extends RecyclerView.Adapter<ExchangeRateAdapte
     public static class ExchangeRateViewHolder extends RecyclerView.ViewHolder {
 
         TextView name;
+        TextView buy;
+        TextView sell;
+        TextView move;
 
         public ExchangeRateViewHolder(View view) {
             super(view);
 
             this.name = (TextView) view.findViewById(R.id.exchange_rate_name);
+            this.buy = (TextView) view.findViewById(R.id.exchange_rate_buy);
+            this.sell = (TextView) view.findViewById(R.id.exchange_rate_sell);
+            this.move = (TextView) view.findViewById(R.id.exchange_rate_move);
         }
 
         public void setObject(final CurrencyShowCaseItem item) {
-            this.name.setText(item.title + " - " + System.nanoTime());
+            this.name.setText(item.title);
+            this.buy.setText(item.buyPrice);
+            this.sell.setText(item.sellPrice);
+            this.move.setText(item.moves);
         }
     }
 }
